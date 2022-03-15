@@ -1,7 +1,8 @@
-package com.example.calendarcase
+package com.example.calendarcase.presentation.screen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.calendarcase.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
