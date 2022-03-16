@@ -2,10 +2,11 @@ package com.example.calendarcase.presentation.screen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.calendarcase.R
 import com.example.calendarcase.databinding.ActivityMainBinding
 import com.example.calendarcase.presentation.screen.popup.BottomSheetFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var activityBinding: ActivityMainBinding
 

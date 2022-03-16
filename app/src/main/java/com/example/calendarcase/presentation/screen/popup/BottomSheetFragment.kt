@@ -12,8 +12,10 @@ import androidx.fragment.app.DialogFragment
 import com.example.calendarcase.R
 import com.example.calendarcase.databinding.FragmentBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+@AndroidEntryPoint
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private lateinit var bottomSheetBinding: FragmentBottomSheetBinding
