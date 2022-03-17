@@ -11,5 +11,5 @@ data class Note(
     val allDay: Boolean,
     val date: String,
     val time: String,
-    val doesRepeat: Boolean
+    val doesRepeat: Boolean = true
 ): Parcelable
