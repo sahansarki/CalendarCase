@@ -7,7 +7,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import com.example.calendarcase.R
@@ -16,13 +19,15 @@ import com.example.calendarcase.domain.model.Note
 import com.example.calendarcase.enum.Month
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.DelicateCoroutinesApi
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 
+@OptIn(DelicateCoroutinesApi::class)
 @AndroidEntryPoint
 class BottomSheetFragment : BottomSheetDialogFragment() {
-    // private val mViewModel: QuotesViewModel by viewModels()
+
     private lateinit var bottomSheetBinding: FragmentBottomSheetBinding
     private val mViewModel: BottomSheetFragmentViewModel by viewModels()
 
@@ -104,8 +109,12 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     allDay = bottomSheetBinding.allDaySwitchButton.isChecked,
                     date = bottomSheetBinding.dateText.text.toString(),
                     time = bottomSheetBinding.hourText.text.toString(),
+                    doesRepeat = bottomSheetBinding.replaySwitchButton.isChecked
                 )
-                mViewModel.insertNote(note)
+                mViewModel.insertNote(note){
+                    Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+                }
+                this.dismiss()
             }
         }
     }
