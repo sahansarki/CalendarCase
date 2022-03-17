@@ -1,11 +1,9 @@
 package com.example.calendarcase.data.local
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.calendarcase.data.local.model.NoteEntity
 
+@Dao
 interface NotesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
