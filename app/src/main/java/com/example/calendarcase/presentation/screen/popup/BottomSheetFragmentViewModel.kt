@@ -16,26 +16,15 @@ import javax.inject.Inject
 @HiltViewModel
 class BottomSheetFragmentViewModel @Inject constructor(
     private val insertNoteUseCase: InsertNoteUseCase,
-    private val deleteNoteUseCase: DeleteNoteUseCase,
 ): ViewModel(){
 
-    fun insertNote(note: Note){
+    fun insertNote(note: Note, success: (text: String) -> Unit ){
         insertNoteUseCase(note, viewModelScope){
             if(it.status == RepositoryStatus.OK){
-                // Note eklendi
-                Log.e("INSERTNOTE","INSERT İSLEMİ BASARILI")
+                success("${it.data!!.title} has been inserted!")
             }
         }
 
     }
-
-    fun deleteNote(note: Note){
-        deleteNoteUseCase(note, viewModelScope){
-            if(it.status == RepositoryStatus.OK){
-                // Note silindi
-            }
-        }
-    }
-
 
 }
