@@ -24,6 +24,7 @@ class MainActivityViewModel @Inject constructor(
     fun getNoteByDate(date: String){
         getNoteByDateUseCase(date, viewModelScope){
             mutableNote.value = it
+
         }
     }
 
