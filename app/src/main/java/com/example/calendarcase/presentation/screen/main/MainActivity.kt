@@ -1,4 +1,4 @@
-package com.example.calendarcase.presentation.screen
+package com.example.calendarcase.presentation.screen.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
