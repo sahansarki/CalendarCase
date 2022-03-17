@@ -19,7 +19,6 @@ class NotesRepositoryImpl @Inject constructor(
         val result: DataHolder<Note> = try{
             val data = mapNoteToEntity(note)
             notesDao.insertNote(data)
-
             DataHolder.success(note)
         } catch (e: Exception){
             DataHolder.error(CalendarError(e.localizedMessage,e) ,note)
@@ -50,7 +49,7 @@ class NotesRepositoryImpl @Inject constructor(
             val dataNote = mapNoteEntity(noteEntity)
             DataHolder.success(dataNote)
         } catch (e: Exception){
-            DataHolder.error(CalendarError(e.localizedMessage, e),null)
+            DataHolder.error(CalendarError("No Data found on that date", e),null)
         }
 
         return result
