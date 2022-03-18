@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">CalendarCase</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="save">Save</string>
+    <string name="title">Title</string>
+    <string name="write_your_note_here">Write your note here.</string>
+    <string name="all_day">All-day</string>
+    <string name="tue_mar_15_2022">Tue, Mar 15, 2022</string>
+    <string name="_13_30">13:30</string>
+    <string name="does_not_repeat">Does not repeat</string>
 </resources>
