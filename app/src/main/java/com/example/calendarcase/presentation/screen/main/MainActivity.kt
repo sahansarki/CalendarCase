@@ -7,14 +7,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.viewModels
 import com.example.calendarcase.databinding.ActivityMainBinding
 import com.example.calendarcase.enum.Month
 import com.example.calendarcase.enum.RepositoryStatus
 import com.example.calendarcase.extension.clearMainLayout
+import com.example.calendarcase.extension.dateConvert
 import com.example.calendarcase.extension.viewMainLayout
 import com.example.calendarcase.presentation.screen.popup.BottomSheetFragment
-import com.example.calendarcase.presentation.screen.popup.BottomSheetFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.DelicateCoroutinesApi
 import java.time.LocalDate
@@ -38,15 +37,7 @@ class MainActivity : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        val dayOfWeekFormatter: DateTimeFormatter =
-            DateTimeFormatter.ofPattern("EEE", Locale.ENGLISH)
-
-        val date: LocalDate = LocalDate.of(
-            year, month, day
-        )
-        val dateString =
-            "${date.format(dayOfWeekFormatter)}, ${Month.values()[month].name} $day, $year"
-
+        val dateString = dateConvert(year, month, day)
         mViewModel.getNoteByDate(dateString)
 
 

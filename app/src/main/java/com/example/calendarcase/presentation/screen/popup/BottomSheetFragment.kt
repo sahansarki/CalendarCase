@@ -7,21 +7,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import com.example.calendarcase.R
 import com.example.calendarcase.databinding.FragmentBottomSheetBinding
 import com.example.calendarcase.domain.model.Note
-import com.example.calendarcase.enum.Month
+import com.example.calendarcase.extension.dateConvert
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.DelicateCoroutinesApi
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 @OptIn(DelicateCoroutinesApi::class)
@@ -72,14 +68,7 @@ class BottomSheetFragment(private val note: Note? = null, private val updateDone
             val datePicker = DatePickerDialog(
                 requireContext(),
                 { picker, mYear, mMonth, mDay ->
-                    val dayOfWeekFormatter: DateTimeFormatter =
-                        DateTimeFormatter.ofPattern("EEE", Locale.ENGLISH)
-
-                    val date: LocalDate = LocalDate.of(
-                        mYear, 3, mDay
-                    )
-                    val dateString =
-                        "${date.format(dayOfWeekFormatter)}, ${Month.values()[mMonth].name} $mDay, $mYear"
+                    val dateString = dateConvert(mYear, mMonth, mDay)
                     bottomSheetBinding.dateText.text = dateString
                 },
                 year,
