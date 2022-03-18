@@ -17,6 +17,7 @@ fun clearMainLayout(view: ActivityMainBinding){
         replayText.visibility = View.GONE
         replaySwitchButton.visibility = View.GONE
         buttonDelete.visibility = View.GONE
+        buttonUpdate.visibility = View.GONE
     }
 }
 
@@ -34,5 +35,6 @@ fun viewMainLayout(view: ActivityMainBinding){
         replayText.visibility = View.VISIBLE
         replaySwitchButton.visibility = View.VISIBLE
         buttonDelete.visibility = View.VISIBLE
+        buttonUpdate.visibility = View.VISIBLE
     }
 }
