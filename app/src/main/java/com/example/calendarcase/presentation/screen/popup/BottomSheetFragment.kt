@@ -22,15 +22,15 @@ import java.util.*
 
 @OptIn(DelicateCoroutinesApi::class)
 @AndroidEntryPoint
-class BottomSheetFragment(private val note: Note? = null, private val updateDone: (date: String) -> Unit) : BottomSheetDialogFragment() {
+class BottomSheetFragment(private val note: Note? = null, private val updateDone: (date: String) -> Unit, private val insertDone: () -> Unit) : BottomSheetDialogFragment() {
 
     private lateinit var bottomSheetBinding: FragmentBottomSheetBinding
     private val mViewModel: BottomSheetFragmentViewModel by viewModels()
 
     companion object {
         const val TAG = "SearchScreenBottomSheet"
-        fun newInstance(note: Note? = null, updateDone: (date: String) -> Unit): BottomSheetFragment {
-            return BottomSheetFragment(note, updateDone)
+        fun newInstance(note: Note? = null, updateDone: (date: String) -> Unit, insertDone: () -> Unit): BottomSheetFragment {
+            return BottomSheetFragment(note, updateDone, insertDone)
         }
     }
 
@@ -116,6 +116,7 @@ class BottomSheetFragment(private val note: Note? = null, private val updateDone
                     mViewModel.insertNote(newNote) {
                         Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
                     }
+                    insertDone()
                 }
 
                 this.dismiss()
