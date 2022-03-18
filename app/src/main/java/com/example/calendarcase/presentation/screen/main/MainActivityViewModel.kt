@@ -22,8 +22,8 @@ class MainActivityViewModel @Inject constructor(
     private val deleteNoteUseCase: DeleteNoteUseCase,
 ): BaseViewModel() {
 
-    private val mutableNote =  MutableLiveData<DataHolder<Note>>()
-    val note: LiveData<DataHolder<Note>>
+    private val mutableNote =  MutableLiveData<DataHolder<List<Note>>>()
+    val note: LiveData<DataHolder<List<Note>>>
         get() = mutableNote
 
     fun getNoteByDate(date: String){
@@ -39,7 +39,7 @@ class MainActivityViewModel @Inject constructor(
 
         deleteNoteUseCase(note, viewModelScope){
             if(it.status == RepositoryStatus.OK){
-                success("${it.data!!.title} has been deleted.")
+                success("${it.data!![0].title} has been deleted.")
             }
         }
     }
