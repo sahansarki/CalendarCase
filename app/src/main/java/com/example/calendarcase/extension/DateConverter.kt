@@ -15,5 +15,5 @@ fun dateConvert(year: Int, month: Int, day: Int): String {
     val date: LocalDate = LocalDate.of(
         year, month, day
     )
-    return "${date.format(dayOfWeekFormatter)}, ${Month.values()[month].name} $date, $year"
+    return "${date.format(dayOfWeekFormatter)}, ${Month.values()[month].name} $day, $year"
 }
