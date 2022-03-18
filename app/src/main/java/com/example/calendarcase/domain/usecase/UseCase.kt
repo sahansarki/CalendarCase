@@ -11,13 +11,13 @@ import kotlinx.coroutines.launch
 
 abstract class UseCase<Params>{
 
-    abstract suspend fun run(params: Params): DataHolder<Note>
+    abstract suspend fun run(params: Params): DataHolder<List<Note>>
 
     @DelicateCoroutinesApi
     operator fun invoke(
         params: Params,
         scope: CoroutineScope = GlobalScope,
-        onResult: (DataHolder<Note>) -> Unit = {},
+        onResult: (DataHolder<List<Note>>) -> Unit = {},
     ) {
         scope.launch(Dispatchers.Main) {
             val deferred = async(Dispatchers.IO) {

@@ -9,7 +9,7 @@ import javax.inject.Inject
 class GetNoteByDateUseCase @Inject constructor(
     @NotesRepositoryImp private val notesRepository: NotesRepository
 ) : UseCase<String>() {
-    override suspend fun run(params: String): DataHolder<Note> {
+    override suspend fun run(params: String): DataHolder<List<Note>> {
         return notesRepository.getNoteByDate(params)
     }
 }

@@ -9,7 +9,7 @@ import javax.inject.Inject
 class UpdateNoteUseCase @Inject constructor(
     @NotesRepositoryImp private val notesRepository: NotesRepository
 ): UseCase<Note>() {
-    override suspend fun run(params: Note): DataHolder<Note> {
+    override suspend fun run(params: Note): DataHolder<List<Note>> {
         return notesRepository.updateNote(params)
     }
 }

@@ -13,7 +13,7 @@ interface NotesDao {
     suspend fun deleteNote(note: NoteEntity)
 
     @Query("SELECT * FROM notes_table WHERE date = :date")
-    suspend fun getNoteByDate(date: String): NoteEntity
+    suspend fun getNoteByDate(date: String): List<NoteEntity>
 
     @Update
     suspend fun updateNote(note: NoteEntity)

@@ -6,8 +6,8 @@ import com.example.calendarcase.domain.model.Note
 import com.example.calendarcase.util.DataHolder
 
 interface NotesRepository {
-    suspend fun insertNote(note: Note): DataHolder<Note>
-    suspend fun deleteNote(note: Note): DataHolder<Note>
-    suspend fun getNoteByDate(date: String): DataHolder<Note>
-    suspend fun updateNote(note: Note): DataHolder<Note>
+    suspend fun insertNote(note: Note): DataHolder<List<Note>>
+    suspend fun deleteNote(note: Note): DataHolder<List<Note>>
+    suspend fun getNoteByDate(date: String): DataHolder<List<Note>>
+    suspend fun updateNote(note: Note): DataHolder<List<Note>>
 }

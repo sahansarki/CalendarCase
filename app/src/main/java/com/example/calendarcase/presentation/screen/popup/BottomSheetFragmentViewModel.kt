@@ -27,7 +27,7 @@ class BottomSheetFragmentViewModel @Inject constructor(
 
         insertNoteUseCase(note, viewModelScope){
             if(it.status == RepositoryStatus.OK){
-                success("${it.data!!.title} has been inserted!")
+                success("${it.data!![0].title} has been inserted!")
             }
         }
     }
@@ -37,7 +37,7 @@ class BottomSheetFragmentViewModel @Inject constructor(
 
         updateNoteUseCase(note, viewModelScope){
             if(it.status == RepositoryStatus.OK){
-                success("${it.data!!.title} has been updated.")
+                success("${it.data!![0].title} has been updated.")
             }
             else if(it.status == RepositoryStatus.ERROR) {
                 println("Error")
