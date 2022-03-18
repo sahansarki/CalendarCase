@@ -44,8 +44,10 @@ class MainActivity : AppCompatActivity() {
 
         noteAdapter = NotesRecyclerAdapter({ updatedNote ->
 
-            val bottomSheet = BottomSheetFragment.newInstance(updatedNote){
+            val bottomSheet = BottomSheetFragment.newInstance(updatedNote,{
                 mViewModel.getNoteByDate(it)
+            }){
+
             }
             bottomSheet.show(
                 supportFragmentManager,
@@ -73,9 +75,12 @@ class MainActivity : AppCompatActivity() {
 
 
         activityBinding.floatingActionButton.setOnClickListener {
-            val bottomSheet = BottomSheetFragment.newInstance{
+            val bottomSheet = BottomSheetFragment.newInstance(updateDone = {
                 mViewModel.getNoteByDate(dateString)
-            }
+            }, insertDone = {
+                mViewModel.getNoteByDate(dateString)
+            })
+
             bottomSheet.show(
                 supportFragmentManager,
                 BottomSheetFragment.TAG
