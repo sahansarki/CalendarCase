@@ -18,9 +18,9 @@
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/editTextTitle"
@@ -33,128 +33,141 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/calendarView" />
 
-        <Button
-            android:id="@+id/buttonDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Delete"
-            android:backgroundTint="#595757"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/replayText"
-            android:layout_marginTop="10dp"/>
-
 
         <ImageView
             android:id="@+id/imageDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/editTextTitle"
-            app:layout_constraintStart_toStartOf="parent"
             android:padding="12dp"
-            android:src="@drawable/ic_description" />
+            android:src="@drawable/ic_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextTitle" />
 
         <TextView
             android:id="@+id/editTextDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:hint="Write your note here.Write your noteWrite your note here.Write your noteWrite your note here.Write your note"
             android:maxLines="8"
-            android:textColor="@color/black"
-            android:text="@{note.description}"
             android:padding="12dp"
+            android:text="@{note.description}"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageDescription"
-            app:layout_constraintTop_toTopOf="@id/imageDescription" />
+            app:layout_constraintTop_toTopOf="@id/imageDescription"
+            tools:hint="Write your note here.Write your noteWrite your note here.Write your noteWrite your note here.Write your note" />
 
         <ImageView
             android:id="@+id/imageClock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/editTextDescription"
-            app:layout_constraintStart_toStartOf="parent"
             android:padding="12dp"
-            android:src="@drawable/ic_clock" />
+            android:src="@drawable/ic_clock"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextDescription" />
 
         <TextView
             android:id="@+id/allDayText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/imageClock"
-            app:layout_constraintTop_toTopOf="@id/imageClock"
-            app:layout_constraintBottom_toBottomOf="@id/imageClock"
+            android:text="All-day"
             android:textColor="@color/black"
-            android:text="All-day" />
+            app:layout_constraintBottom_toBottomOf="@id/imageClock"
+            app:layout_constraintStart_toEndOf="@id/imageClock"
+            app:layout_constraintTop_toTopOf="@id/imageClock" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/allDaySwitchButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTextDescription"
-            android:layout_marginEnd="10dp" />
+            app:layout_constraintTop_toBottomOf="@id/editTextDescription" />
 
         <TextView
             android:id="@+id/dateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/allDayText"
-            app:layout_constraintStart_toStartOf="@id/allDayText"
             android:layout_marginTop="16dp"
-            android:textColor="@color/black"
             android:text="@{note.date}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/allDayText"
+            app:layout_constraintTop_toBottomOf="@id/allDayText"
             tools:text="Tue, Mar 15, 2022" />
 
         <TextView
             android:id="@+id/hourText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{note.time}"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/allDaySwitchButton"
             app:layout_constraintStart_toStartOf="@+id/allDaySwitchButton"
             app:layout_constraintTop_toBottomOf="@+id/allDaySwitchButton"
-            tools:text="13:30"
-            android:text="@{note.time}"/>
+            tools:text="13:30" />
 
         <ImageView
             android:id="@+id/imageReplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/dateText"
-            app:layout_constraintStart_toStartOf="parent"
             android:padding="12dp"
-            android:src="@drawable/ic_replay" />
+            android:src="@drawable/ic_replay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dateText" />
 
         <TextView
             android:id="@+id/replayText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/imageReplay"
+            android:text="Does not repeat"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/imageReplay"
             app:layout_constraintStart_toEndOf="@id/imageReplay"
-            android:textColor="@color/black"
-            android:text="Does not repeat" />
+            app:layout_constraintTop_toTopOf="@id/imageReplay" />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#595757"
+            android:text="Delete"
+            app:layout_constraintEnd_toStartOf="@+id/buttonUpdate"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/replayText" />
+
+        <Button
+            android:id="@+id/buttonUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#595757"
+            android:text="Update"
+            app:layout_constraintBottom_toBottomOf="@id/buttonDelete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonDelete"
+            app:layout_constraintTop_toTopOf="@id/buttonDelete" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/replaySwitchButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hourText"
-            android:layout_marginEnd="10dp" />
+            app:layout_constraintTop_toBottomOf="@id/hourText" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/fab_color"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/ic_plus"
-            android:backgroundTint="@color/fab_color"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="20dp" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
