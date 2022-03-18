@@ -23,7 +23,8 @@ abstract class UseCase<Params>{
             val deferred = async(Dispatchers.IO) {
                 run(params)
             }
-            onResult(deferred.await())
+            val note = deferred.await()
+            onResult(note)
         }
     }
 
