@@ -34,7 +34,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(activityBinding.root)
 
         activityBinding.floatingActionButton.setOnClickListener {
-            val bottomSheet = BottomSheetFragment.newInstance()
+            val bottomSheet = BottomSheetFragment.newInstance(){
+
+            }
             bottomSheet.show(
                 supportFragmentManager,
                 BottomSheetFragment.TAG
@@ -61,8 +63,23 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        activityBinding.buttonUpdate.setOnClickListener {
+            val bottomSheet = BottomSheetFragment.newInstance(activityBinding.note!!){
+                mViewModel.getNoteByDate(it)
+            }
+            bottomSheet.show(
+                supportFragmentManager,
+                BottomSheetFragment.TAG
+            )
+        }
         observeNote()
     }
+
+
+
+
+
 
 
     private fun observeNote() {

@@ -26,15 +26,15 @@ import java.util.*
 
 @OptIn(DelicateCoroutinesApi::class)
 @AndroidEntryPoint
-class BottomSheetFragment : BottomSheetDialogFragment() {
+class BottomSheetFragment(private val note: Note? = null, private val updateDone: (date: String) -> Unit) : BottomSheetDialogFragment() {
 
     private lateinit var bottomSheetBinding: FragmentBottomSheetBinding
     private val mViewModel: BottomSheetFragmentViewModel by viewModels()
 
     companion object {
         const val TAG = "SearchScreenBottomSheet"
-        fun newInstance(): BottomSheetFragment {
-            return BottomSheetFragment()
+        fun newInstance(note: Note? = null, updateDone: (date: String) -> Unit): BottomSheetFragment {
+            return BottomSheetFragment(note, updateDone)
         }
     }
 
@@ -57,6 +57,8 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (note != null) initializeLayout()
+
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
@@ -76,7 +78,8 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     val date: LocalDate = LocalDate.of(
                         mYear, 3, mDay
                     )
-                    val dateString = "${date.format(dayOfWeekFormatter)}, ${Month.values()[mMonth].name} $mDay, $mYear"
+                    val dateString =
+                        "${date.format(dayOfWeekFormatter)}, ${Month.values()[mMonth].name} $mDay, $mYear"
                     bottomSheetBinding.dateText.text = dateString
                 },
                 year,
@@ -103,7 +106,8 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
             if (bottomSheetBinding.editTextTitle.text.isNotEmpty() &&
                 bottomSheetBinding.editTextDescription.text.isNotEmpty()
             ) {
-                val note = Note(
+
+                val newNote = Note(
                     title = bottomSheetBinding.editTextTitle.text.toString(),
                     description = bottomSheetBinding.editTextDescription.text.toString(),
                     allDay = bottomSheetBinding.allDaySwitchButton.isChecked,
@@ -111,11 +115,33 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     time = bottomSheetBinding.hourText.text.toString(),
                     doesRepeat = bottomSheetBinding.replaySwitchButton.isChecked
                 )
-                mViewModel.insertNote(note){
-                    Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+
+                if (note != null) {
+                    newNote.id = note.id
+                    mViewModel.updateNote(newNote) {
+                        Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+                    }
+                    updateDone(note.date)
+
+                } else {
+                    mViewModel.insertNote(newNote) {
+                        Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+                    }
                 }
+
                 this.dismiss()
             }
+        }
+    }
+
+    private fun initializeLayout() {
+        bottomSheetBinding.apply {
+            editTextTitle.setText(note!!.title)
+            editTextDescription.setText(note.description)
+            allDaySwitchButton.isChecked = note.allDay
+            dateText.text = note.date
+            hourText.text = note.time
+            replaySwitchButton.isChecked = note.doesRepeat
         }
     }
 
