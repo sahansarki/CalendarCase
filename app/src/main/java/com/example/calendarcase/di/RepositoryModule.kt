@@ -13,7 +13,7 @@ import javax.inject.Qualifier
 interface RepositoryModule {
     @Binds
     @NotesRepositoryImp
-    fun bindQuotesRepository(quotesRepositoryImpl: NotesRepositoryImpl): NotesRepository
+    fun bindNotesRepository(quotesRepositoryImpl: NotesRepositoryImpl): NotesRepository
 
 }
 

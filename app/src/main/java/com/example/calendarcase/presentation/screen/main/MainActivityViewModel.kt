@@ -2,12 +2,10 @@ package com.example.calendarcase.presentation.screen.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.calendarcase.domain.model.Note
 import com.example.calendarcase.domain.usecase.DeleteNoteUseCase
 import com.example.calendarcase.domain.usecase.GetNoteByDateUseCase
-import com.example.calendarcase.domain.usecase.UpdateNoteUseCase
 import com.example.calendarcase.enum.RepositoryStatus
 import com.example.calendarcase.presentation.base.BaseViewModel
 import com.example.calendarcase.util.DataHolder
