@@ -33,6 +33,23 @@ class MainActivity : AppCompatActivity() {
         activityBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityBinding.root)
 
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val dayOfWeekFormatter: DateTimeFormatter =
+            DateTimeFormatter.ofPattern("EEE", Locale.ENGLISH)
+
+        val date: LocalDate = LocalDate.of(
+            year, month, day
+        )
+        val dateString =
+            "${date.format(dayOfWeekFormatter)}, ${Month.values()[month].name} $day, $year"
+
+        mViewModel.getNoteByDate(dateString)
+
+
         activityBinding.floatingActionButton.setOnClickListener {
             val bottomSheet = BottomSheetFragment.newInstance(){
 
