@@ -9,4 +9,5 @@ interface NotesRepository {
     suspend fun insertNote(note: Note): DataHolder<Note>
     suspend fun deleteNote(note: Note): DataHolder<Note>
     suspend fun getNoteByDate(date: String): DataHolder<Note>
+    suspend fun updateNote(note: Note): DataHolder<Note>
 }
