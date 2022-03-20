@@ -1,134 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_cancel" />
-
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTitle"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:hint="@string/title"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/saveButton"/>
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_cancel" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="@string/title"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/saveButton" />
 
 
-    <ImageView
-        android:id="@+id/imageDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/editTextTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        android:padding="12dp"
-        android:src="@drawable/ic_description" />
+        <ImageView
+            android:id="@+id/imageDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/editTextTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="12dp"
+            android:src="@drawable/ic_description" />
 
-    <EditText
-        android:id="@+id/editTextDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/write_your_note_here"
-        android:inputType="textMultiLine"
-        android:maxLines="6"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imageDescription"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
+        <EditText
+            android:id="@+id/editTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/write_your_note_here"
+            android:inputType="textMultiLine"
+            android:maxLines="6"
+            android:ems="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageDescription"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
 
-    <ImageView
-        android:id="@+id/imageClock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/editTextDescription"
-        app:layout_constraintStart_toStartOf="parent"
-        android:padding="12dp"
-        android:src="@drawable/ic_clock"
-        />
+        <ImageView
+            android:id="@+id/imageClock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/editTextDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="12dp"
+            android:src="@drawable/ic_clock" />
 
-    <TextView
-        android:id="@+id/allDayText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/imageClock"
-        app:layout_constraintTop_toTopOf="@id/imageClock"
-        app:layout_constraintBottom_toBottomOf="@id/imageClock"
-        android:textColor="@color/black"
-        android:text="@string/all_day"/>
+        <TextView
+            android:id="@+id/allDayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/imageClock"
+            app:layout_constraintTop_toTopOf="@id/imageClock"
+            app:layout_constraintBottom_toBottomOf="@id/imageClock"
+            android:textColor="@color/black"
+            android:text="@string/all_day" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/allDaySwitchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextDescription"
-        android:layout_marginEnd="10dp"/>
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/allDaySwitchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextDescription"
+            android:layout_marginEnd="10dp" />
 
-    <TextView
-        android:id="@+id/dateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/allDayText"
-        app:layout_constraintStart_toStartOf="@id/allDayText"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/black"
-        android:text="@string/tue_mar_15_2022"/>
+        <TextView
+            android:id="@+id/dateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/allDayText"
+            app:layout_constraintStart_toStartOf="@id/allDayText"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:text="@string/tue_mar_15_2022" />
 
-    <TextView
-        android:id="@+id/hourText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/allDaySwitchButton"
-        app:layout_constraintStart_toStartOf="@+id/allDaySwitchButton"
-        app:layout_constraintTop_toBottomOf="@+id/allDaySwitchButton"
-        android:text="@string/_13_30" />
+        <TextView
+            android:id="@+id/hourText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/allDaySwitchButton"
+            app:layout_constraintStart_toStartOf="@+id/allDaySwitchButton"
+            app:layout_constraintTop_toBottomOf="@+id/allDaySwitchButton"
+            android:text="@string/_13_30" />
 
-    <ImageView
-        android:id="@+id/imageReplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/dateText"
-        app:layout_constraintStart_toStartOf="parent"
-        android:padding="12dp"
-        android:src="@drawable/ic_replay"
-        />
+        <ImageView
+            android:id="@+id/imageReplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/dateText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="12dp"
+            android:src="@drawable/ic_replay" />
 
-    <TextView
-        android:id="@+id/replayText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/imageReplay"
-        app:layout_constraintBottom_toBottomOf="@id/imageReplay"
-        app:layout_constraintStart_toEndOf="@id/imageReplay"
-        android:textColor="@color/black"
-        android:text="@string/does_not_repeat"/>
+        <TextView
+            android:id="@+id/replayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/imageReplay"
+            app:layout_constraintBottom_toBottomOf="@id/imageReplay"
+            app:layout_constraintStart_toEndOf="@id/imageReplay"
+            android:textColor="@color/black"
+            android:text="@string/does_not_repeat" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/replaySwitchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hourText"
-        android:layout_marginEnd="10dp"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/replaySwitchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hourText"
+            android:layout_marginEnd="10dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
