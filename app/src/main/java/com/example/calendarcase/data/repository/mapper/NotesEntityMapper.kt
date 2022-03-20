@@ -1,4 +1,4 @@
-package com.example.calendarcase.domain.repository.mapper
+package com.example.calendarcase.data.repository.mapper
 
 import com.example.calendarcase.data.local.model.NoteEntity
 import com.example.calendarcase.domain.model.Note
