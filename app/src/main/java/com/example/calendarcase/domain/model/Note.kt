@@ -12,4 +12,4 @@ data class Note(
     val date: String,
     val time: String,
     val doesRepeat: Boolean
-): Parcelable
+) : Parcelable

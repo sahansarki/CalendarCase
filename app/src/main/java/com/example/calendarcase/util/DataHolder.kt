@@ -2,7 +2,11 @@ package com.example.calendarcase.util
 
 import com.example.calendarcase.enum.RepositoryStatus
 
-class DataHolder<out T> private constructor(val status: RepositoryStatus, val data: T?, val error: CalendarError?) {
+class DataHolder<out T> private constructor(
+    val status: RepositoryStatus,
+    val data: T?,
+    val error: CalendarError?
+) {
 
     companion object {
 

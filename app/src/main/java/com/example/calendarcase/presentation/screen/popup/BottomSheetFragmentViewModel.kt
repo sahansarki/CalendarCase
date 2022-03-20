@@ -15,27 +15,26 @@ import javax.inject.Inject
 class BottomSheetFragmentViewModel @Inject constructor(
     private val insertNoteUseCase: InsertNoteUseCase,
     private val updateNoteUseCase: UpdateNoteUseCase,
-): BaseViewModel(){
+) : BaseViewModel() {
 
-    fun insertNote(note: Note, success: (text: String) -> Unit ){
+    fun insertNote(note: Note, success: (text: String) -> Unit) {
 
         job?.cancel()
 
-        insertNoteUseCase(note, viewModelScope){
-            if(it.status == RepositoryStatus.OK){
+        insertNoteUseCase(note, viewModelScope) {
+            if (it.status == RepositoryStatus.OK) {
                 success("${it.data!![0].title} has been inserted!")
             }
         }
     }
 
-    fun updateNote(note: Note, success: (text: String) -> Unit ){
+    fun updateNote(note: Note, success: (text: String) -> Unit) {
         job?.cancel()
 
-        updateNoteUseCase(note, viewModelScope){
-            if(it.status == RepositoryStatus.OK){
+        updateNoteUseCase(note, viewModelScope) {
+            if (it.status == RepositoryStatus.OK) {
                 success("${it.data!![0].title} has been updated.")
-            }
-            else if(it.status == RepositoryStatus.ERROR) {
+            } else if (it.status == RepositoryStatus.ERROR) {
                 println("Error")
             }
         }

@@ -9,7 +9,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-abstract class UseCase<Params>{
+abstract class UseCase<Params> {
 
     abstract suspend fun run(params: Params): DataHolder<List<Note>>
 

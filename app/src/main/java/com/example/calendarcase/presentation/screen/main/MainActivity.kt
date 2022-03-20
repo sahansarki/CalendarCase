@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(activityBinding.root)
 
 
-
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
@@ -47,9 +46,9 @@ class MainActivity : AppCompatActivity() {
 
         noteAdapter = NotesRecyclerAdapter({ updatedNote ->
 
-            val bottomSheet = BottomSheetFragment.newInstance(updatedNote,{
+            val bottomSheet = BottomSheetFragment.newInstance(updatedNote, {
                 mViewModel.getNoteByDate(it)
-            }){
+            }) {
 
             }
             bottomSheet.show(
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 BottomSheetFragment.TAG
             )
         }, { deletedNote ->
-            mViewModel.deleteNote(deletedNote){
+            mViewModel.deleteNote(deletedNote) {
                 mViewModel.getNoteByDate(dateString)
             }
         })
@@ -65,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         val mDividerItemDecoration =
             DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
 
-        with(activityBinding.noteListRc){
+        with(activityBinding.noteListRc) {
             layoutManager =
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
             adapter = noteAdapter

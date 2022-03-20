@@ -18,25 +18,25 @@ import javax.inject.Inject
 class MainActivityViewModel @Inject constructor(
     private val getNoteByDateUseCase: GetNoteByDateUseCase,
     private val deleteNoteUseCase: DeleteNoteUseCase,
-): BaseViewModel() {
+) : BaseViewModel() {
 
-    private val mutableNote =  MutableLiveData<DataHolder<List<Note>>>()
+    private val mutableNote = MutableLiveData<DataHolder<List<Note>>>()
     val note: LiveData<DataHolder<List<Note>>>
         get() = mutableNote
 
-    fun getNoteByDate(date: String){
+    fun getNoteByDate(date: String) {
         job?.cancel()
 
-        getNoteByDateUseCase(date, viewModelScope){
+        getNoteByDateUseCase(date, viewModelScope) {
             mutableNote.value = it
         }
     }
 
-    fun deleteNote(note: Note, success: (text: String) -> Unit){
+    fun deleteNote(note: Note, success: (text: String) -> Unit) {
         job?.cancel()
 
-        deleteNoteUseCase(note, viewModelScope){
-            if(it.status == RepositoryStatus.OK){
+        deleteNoteUseCase(note, viewModelScope) {
+            if (it.status == RepositoryStatus.OK) {
                 success("${it.data!![0].title} has been deleted.")
             }
         }

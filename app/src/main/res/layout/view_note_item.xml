@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="note"
             type="com.example.calendarcase.domain.model.Note" />
@@ -31,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
+                android:contentDescription="@string/more_icon"
                 app:layout_constraintBottom_toTopOf="@id/editTextTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -53,6 +55,7 @@
                 android:id="@+id/imageDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/content_description_icon"
                 android:padding="12dp"
                 android:src="@drawable/ic_description"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +78,7 @@
                 android:id="@+id/imageClock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/all_day_icon"
                 android:padding="12dp"
                 android:src="@drawable/ic_clock"
                 app:layout_constraintStart_toStartOf="parent"
@@ -124,6 +128,7 @@
                 android:id="@+id/imageReplay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/image_replay_icon"
                 android:padding="12dp"
                 android:src="@drawable/ic_replay"
                 app:layout_constraintStart_toStartOf="parent"

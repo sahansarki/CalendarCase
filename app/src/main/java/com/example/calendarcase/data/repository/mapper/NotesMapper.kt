@@ -3,7 +3,7 @@ package com.example.calendarcase.data.repository.mapper
 import com.example.calendarcase.data.local.model.NoteEntity
 import com.example.calendarcase.domain.model.Note
 
-fun mapNoteToEntity(input: Note): NoteEntity{
+fun mapNoteToEntity(input: Note): NoteEntity {
     return NoteEntity(
         input.id,
         input.title,

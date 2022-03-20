@@ -1,4 +1,5 @@
 package com.example.calendarcase.domain.repository
+
 import com.example.calendarcase.domain.model.Note
 import com.example.calendarcase.util.DataHolder
 

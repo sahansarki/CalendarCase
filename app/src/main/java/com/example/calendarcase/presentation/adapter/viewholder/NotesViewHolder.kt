@@ -23,12 +23,12 @@ class NotesViewHolder(
         binding.allDaySwitchButton.isClickable = false
         binding.replaySwitchButton.isClickable = false
         binding.noteCardMore.setOnClickListener {
-            val popup = PopupMenu(localContext,it)
+            val popup = PopupMenu(localContext, it)
             popup.menuInflater.inflate(R.menu.note_item_menu, popup.menu)
             popup.show()
 
             popup.setOnMenuItemClickListener { item ->
-                when(item?.itemId){
+                when (item?.itemId) {
                     R.id.action_delete -> {
                         onClickDelete(note)
                         true

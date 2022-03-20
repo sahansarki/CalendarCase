@@ -22,14 +22,22 @@ import java.util.*
 
 @OptIn(DelicateCoroutinesApi::class)
 @AndroidEntryPoint
-class BottomSheetFragment(private val note: Note? = null, private val updateDone: (date: String) -> Unit, private val insertDone: () -> Unit) : BottomSheetDialogFragment() {
+class BottomSheetFragment(
+    private val note: Note? = null,
+    private val updateDone: (date: String) -> Unit,
+    private val insertDone: () -> Unit
+) : BottomSheetDialogFragment() {
 
     private lateinit var bottomSheetBinding: FragmentBottomSheetBinding
     private val mViewModel: BottomSheetFragmentViewModel by viewModels()
 
     companion object {
         const val TAG = "SearchScreenBottomSheet"
-        fun newInstance(note: Note? = null, updateDone: (date: String) -> Unit, insertDone: () -> Unit): BottomSheetFragment {
+        fun newInstance(
+            note: Note? = null,
+            updateDone: (date: String) -> Unit,
+            insertDone: () -> Unit
+        ): BottomSheetFragment {
             return BottomSheetFragment(note, updateDone, insertDone)
         }
     }
