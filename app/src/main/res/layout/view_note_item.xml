@@ -29,11 +29,11 @@
                 android:id="@+id/noteCardMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="10dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@id/editTextTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_more" />
 
             <TextView
@@ -42,11 +42,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:padding="10dp"
-                tools:text="adasdasfsafadfdsadasdasfsafadfds"
                 android:text="@{note.title}"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="adasdasfsafadfdsadasdasfsafadfds" />
 
 
             <ImageView
