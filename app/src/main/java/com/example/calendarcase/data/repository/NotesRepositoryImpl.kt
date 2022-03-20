@@ -3,8 +3,8 @@ package com.example.calendarcase.data.repository
 import com.example.calendarcase.data.local.NotesDao
 import com.example.calendarcase.domain.model.Note
 import com.example.calendarcase.domain.repository.NotesRepository
-import com.example.calendarcase.domain.repository.mapper.mapNoteEntity
-import com.example.calendarcase.domain.repository.mapper.mapNoteToEntity
+import com.example.calendarcase.data.repository.mapper.mapNoteEntity
+import com.example.calendarcase.data.repository.mapper.mapNoteToEntity
 import com.example.calendarcase.util.CalendarError
 import com.example.calendarcase.util.DataHolder
 import javax.inject.Inject
